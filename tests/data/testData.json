@@ -1,0 +1,28 @@
+{
+  "validUser": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "invalidUsers": [
+    {
+      "username": "invalid@example.com",
+      "password": "wrong"
+    },
+    {
+      "username": "",
+      "password": "Test@123"
+    }
+  ],
+  "products": [
+    {
+      "name": "Laptop",
+      "price": 999.99,
+      "category": "Electronics"
+    },
+    {
+      "name": "Book",
+      "price": 19.99,
+      "category": "Education"
+    }
+  ]
+}

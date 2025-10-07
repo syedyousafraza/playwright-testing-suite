@@ -1,0 +1,31 @@
+{
+  "name": "playwright-javascript",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:chrome": "playwright test --project=chromium",
+    "test:parallel": "playwright test --workers=4",
+    "test:tag": "playwright test --grep @smoke",
+    "test:tag1": "playwright test --grep @regression",
+
+    "test:dev": "ENV=dev playwright test",
+    "test:staging": "ENV=staging playwright test",
+    "test:prod": "ENV=prod playwright test",
+
+    "lint": "eslint . --ext .js",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.0",
+    "allure-playwright": "^2.15.0",
+    "dotenv": "^16.4.0",
+    "@faker-js/faker": "^8.4.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.0"
+  }, 
+    "author": "",
+  "license": "ISC",
+  "description": ""
+}
