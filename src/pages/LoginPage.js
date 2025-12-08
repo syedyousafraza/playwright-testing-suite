@@ -9,7 +9,7 @@ export class LoginPage extends BasePage {
     this.usernameInput = page.locator('#user-name');
     this.passwordInput = page.locator('#password');
     this.loginButton = page.locator('#login-button');
-    this.errorMessage = page.locator('#login_button_container > div > form > h3');
+    this.errorMessage = page.locator('h3');
     this.rememberMeCheckbox = page.locator('#remember-me');
   }
 

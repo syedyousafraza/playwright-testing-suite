@@ -4,7 +4,7 @@ import testData from '../data/testData.json'  assert { type: 'json' };
 
 test.describe('Login Functionality', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('/v1');
+        await page.goto('/');
     });
 
     // src/fixtures/testFixtures.js

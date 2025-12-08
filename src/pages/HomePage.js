@@ -5,10 +5,9 @@ export class HomePage extends BasePage {
   constructor(page) {
     super(page);
     
-  //  this.welcomeMessage = page.locator('.welcome-message');
-
-    this.welcomeMessage = page.locator('#inventory_filter_container > div');
-    this.logoutButton = page.locator('#logout');
+    // Products title element visible after successful login
+    this.welcomeMessage = page.locator('[data-test="title"]');
+    this.logoutButton = page.locator('#logout_sidebar_link');
     this.userProfile = page.locator('.user-profile');
     this.searchBar = page.locator('#search');
   }
