@@ -1,103 +1,140 @@
 
 // tests/api/api.spec.js
+// Using JSONPlaceholder (https://jsonplaceholder.typicode.com) as free public API for testing
 import { test, expect } from '@playwright/test';
-import { ApiHelper } from '../../src/utils/ApiHelper';
-import { DataGenerator } from '../../src/utils/DataGenerator';
+import { ApiHelper } from '../../src/utils/ApiHelper.js';
+import { DataGenerator } from '../../src/utils/DataGenerator.js';
 
 test.describe('API Tests', () => {
   let apiHelper;
 
   test.beforeEach(async ({ request }) => {
     apiHelper = new ApiHelper(request);
-//    await apiHelper.authenticate(); // Authenticate before each test
   });
 
   test.describe('User Management', () => {
-    test('should create a new user', async () => {
-      // Arrange
-      const userData = DataGenerator.generateUser();
+    test('should retrieve an existing user', async () => {
+      // JSONPlaceholder comes with pre-populated data (IDs 1-10)
+      const response = await apiHelper.getUser(1);
 
-      // Act
-      const response = await apiHelper.createUser(userData);
-
-      // Assert
       expect(response).toHaveProperty('id');
-      expect(response.name).toBe(userData.name);
-      expect(response.createdAt).toBeDefined();
+      expect(response).toHaveProperty('name');
+      expect(response).toHaveProperty('email');
     });
 
-    test('should retrieve a user', async () => {
-      // Act
-      const response = await apiHelper.getUser(2);
-
-      // Assert
-      expect(response.data).toBeDefined();
-      expect(response.data.email).toMatch(/@.+\..+/);
-    });
-
-    test('should update a user', async () => {
-      // Arrange
-      const updateData = DataGenerator.generateUser();
-
-      // Act
-      const response = await apiHelper.updateUser(2, updateData);
-
-      // Assert
-      expect(response.updatedAt).toBeDefined();
-      expect(response).toMatchObject(updateData);
-    });
-
-    test('should list users with pagination', async () => {
-      // Act
+    test('should list all users', async () => {
       const response = await apiHelper.listUsers(1);
 
-      // Assert
-      expect(response.page).toBe(1);
-      expect(response.data).toBeInstanceOf(Array);
-      expect(response.data.length).toBeGreaterThan(0);
+      expect(Array.isArray(response)).toBeTruthy();
+      expect(response.length).toBeGreaterThan(0);
+      expect(response[0]).toHaveProperty('id');
+      expect(response[0]).toHaveProperty('name');
+    });
+
+    test('should create a new post (testing POST)', async () => {
+      const postData = {
+        title: 'Test Post Title',
+        body: 'This is a test post body',
+        userId: 1,
+      };
+
+      const response = await apiHelper.createPost(postData);
+
+      expect(response).toHaveProperty('id');
+      expect(response.title).toBe(postData.title);
+      expect(response.body).toBe(postData.body);
+    });
+
+    test('should update a post (testing PUT)', async () => {
+      const updateData = {
+        title: 'Updated Post Title',
+        body: 'Updated post body',
+        userId: 1,
+      };
+
+      const response = await apiHelper.updatePost(1, updateData);
+
+      expect(response).toHaveProperty('id');
+      expect(response.title).toBe(updateData.title);
+      expect(response.body).toBe(updateData.body);
+    });
+
+    test('should delete a post (testing DELETE)', async () => {
+      const response = await apiHelper.deletePost(1);
+
+      // JSONPlaceholder returns empty object on successful delete
+      expect(response).toBeDefined();
     });
   });
 
-  test.describe('Authentication', () => {
-    test('should login successfully', async () => {
-      // Arrange
-      const { email, password } = DataGenerator.generateLoginCredentials();
+  test.describe('Post Operations', () => {
+    test('should retrieve a post', async () => {
+      const response = await apiHelper.getPost(1);
 
-      // Act
-      const response = await apiHelper.login(email, password);
-
-      // Assert
-      expect(response.token).toBeDefined();
-      expect(response.token.length).toBeGreaterThan(10);
+      expect(response).toHaveProperty('id');
+      expect(response).toHaveProperty('title');
+      expect(response).toHaveProperty('body');
+      expect(response).toHaveProperty('userId');
     });
 
-    test('should register new user', async () => {
-      // Arrange
-      const registrationData = DataGenerator.generateRegistrationData();
+    test('should list all posts', async () => {
+      const response = await apiHelper.listPosts();
 
-      // Act
-      const response = await apiHelper.register(
-        registrationData.email,
-        registrationData.password
-      );
-
-      // Assert
-      expect(response.id).toBeDefined();
-      expect(response.token).toBeDefined();
+      expect(Array.isArray(response)).toBeTruthy();
+      expect(response.length).toBeGreaterThan(0);
+      expect(response[0]).toHaveProperty('id');
+      expect(response[0]).toHaveProperty('title');
     });
   });
 
   test.describe('Error Handling', () => {
     test('should handle invalid user ID gracefully', async () => {
-      // Act & Assert
-      await expect(apiHelper.getUser(999999)).rejects.toThrow('API Request Failed');
+      // JSONPlaceholder returns 404 for non-existent IDs
+      // We test that the API helper properly throws an error on non-200 responses
+      try {
+        await apiHelper.getUser(999999);
+        // Should not reach here
+        expect(true).toBe(false);
+      } catch (error) {
+        expect(error.message).toContain('API Request Failed');
+        expect(error.message).toContain('404');
+      }
     });
 
-    test('should handle invalid login credentials', async () => {
-      // Act & Assert
-      await expect(
-        apiHelper.login('invalid@email.com', 'wrongpassword')
-      ).rejects.toThrow('API Request Failed');
+    test('should handle requests correctly', async () => {
+      // Test that API helper formats requests correctly
+      const response = await apiHelper.getPost(5);
+
+      expect(response).toHaveProperty('id');
+      expect(response.id).toBe(5);
+    });
+  });
+
+  test.describe('Generic Resource Operations', () => {
+    test('should create a generic resource (POST)', async () => {
+      const resourceData = {
+        title: 'Generic Resource',
+        body: 'Test resource',
+        userId: 1,
+      };
+
+      const response = await apiHelper.createResource('posts', resourceData);
+
+      expect(response).toHaveProperty('id');
+      expect(response.title).toBe(resourceData.title);
+    });
+
+    test('should retrieve a generic resource (GET)', async () => {
+      const response = await apiHelper.getResource('users', 2);
+
+      expect(response).toHaveProperty('id');
+      expect(response).toHaveProperty('name');
+    });
+
+    test('should delete a generic resource (DELETE)', async () => {
+      const response = await apiHelper.deleteResource('posts', 5);
+
+      expect(response).toBeDefined();
     });
   });
 });

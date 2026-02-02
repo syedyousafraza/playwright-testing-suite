@@ -4,17 +4,28 @@ import { faker } from '@faker-js/faker';
 export class DataGenerator {
   static generateUser() {
     return {
-      firstName: faker.person.firstName(),
-      lastName: faker.person.lastName(),
+      name: faker.person.fullName(),
       email: faker.internet.email(),
       password: faker.internet.password({ length: 12 }),
       phone: faker.phone.number(),
-      address: {
-        street: faker.location.streetAddress(),
-        city: faker.location.city(),
-        state: faker.location.state(),
-        zipCode: faker.location.zipCode(),
-      }
+      username: faker.internet.username(),
+      website: faker.internet.domainName(),
+    };
+  }
+
+  static generateLoginCredentials() {
+    return {
+      email: faker.internet.email(),
+      password: faker.internet.password({ length: 12 }),
+    };
+  }
+
+  static generateRegistrationData() {
+    return {
+      name: faker.person.fullName(),
+      email: faker.internet.email(),
+      password: faker.internet.password({ length: 12 }),
+      username: faker.internet.username(),
     };
   }
 

@@ -126,174 +126,260 @@
   },
   "suites": [
     {
-      "title": "e2e\\login.spec.js",
-      "file": "e2e/login.spec.js",
+      "title": "api\\api.spec.js",
+      "file": "api/api.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Login Functionality",
-          "file": "e2e/login.spec.js",
-          "line": 4,
+          "title": "API Tests",
+          "file": "api/api.spec.js",
+          "line": 5,
           "column": 6,
-          "specs": [
-            {
-              "title": "Successful login with valid credentials @smoke @regression",
-              "ok": true,
-              "tags": [
-                "smoke",
-                "regression"
-              ],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 17138,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-08T14:54:54.177Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "ce46b734337c02890a88-040c282c192c831f8a54",
-              "file": "e2e/login.spec.js",
-              "line": 19,
-              "column": 3
-            },
-            {
-              "title": "Failed login with invalid credentials @regression",
-              "ok": true,
-              "tags": [
-                "regression"
-              ],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 15622,
-                      "errors": [],
-                      "stdout": [
-                        {
-                          "text": "*****Epic sadface: Username and password do not match any user in this service\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-12-08T14:54:54.178Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "ce46b734337c02890a88-77a58b9acb48398e42b1",
-              "file": "e2e/login.spec.js",
-              "line": 33,
-              "column": 3
-            }
-          ],
+          "specs": [],
           "suites": [
             {
-              "title": "Data-driven login tests",
-              "file": "e2e/login.spec.js",
-              "line": 44,
+              "title": "User Management",
+              "file": "api/api.spec.js",
+              "line": 13,
               "column": 8,
               "specs": [
                 {
-                  "title": "Login fails with Username and password do not match any user in this service",
-                  "ok": true,
+                  "title": "should create a new user",
+                  "ok": false,
                   "tags": [],
                   "tests": [
                     {
                       "timeout": 30000,
                       "annotations": [],
                       "expectedStatus": "passed",
-                      "projectId": "chromium",
-                      "projectName": "chromium",
+                      "projectId": "APITests",
+                      "projectName": "APITests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 76,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:30:46.367Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-8c1706c617aaa03f5481",
+                  "file": "api/api.spec.js",
+                  "line": 14,
+                  "column": 5
+                },
+                {
+                  "title": "should retrieve a user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "APITests",
+                      "projectName": "APITests",
+                      "results": [
+                        {
+                          "workerIndex": 1,
+                          "parallelIndex": 1,
+                          "status": "failed",
+                          "duration": 191,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:30:46.576Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-fb3920d4a159fe362812",
+                  "file": "api/api.spec.js",
+                  "line": 26,
+                  "column": 5
+                },
+                {
+                  "title": "should update a user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "APITests",
+                      "projectName": "APITests",
                       "results": [
                         {
                           "workerIndex": 2,
                           "parallelIndex": 2,
-                          "status": "passed",
-                          "duration": 15720,
-                          "errors": [],
+                          "status": "failed",
+                          "duration": 117,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-08T14:54:54.314Z",
+                          "startTime": "2026-02-02T10:30:47.149Z",
                           "annotations": [],
-                          "attachments": []
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
                         }
                       ],
-                      "status": "expected"
+                      "status": "unexpected"
                     }
                   ],
-                  "id": "ce46b734337c02890a88-23ae36845c99ccf86cdd",
-                  "file": "e2e/login.spec.js",
-                  "line": 63,
-                  "column": 7
+                  "id": "48d5d3ff699f7b4a48ad-14cfbf49b9697d55f98a",
+                  "file": "api/api.spec.js",
+                  "line": 34,
+                  "column": 5
                 },
                 {
-                  "title": "Login fails with Epic sadface: Username and password do not match any user in this service",
-                  "ok": true,
+                  "title": "should list users with pagination",
+                  "ok": false,
                   "tags": [],
                   "tests": [
                     {
                       "timeout": 30000,
                       "annotations": [],
                       "expectedStatus": "passed",
-                      "projectId": "chromium",
-                      "projectName": "chromium",
+                      "projectId": "APITests",
+                      "projectName": "APITests",
                       "results": [
                         {
                           "workerIndex": 3,
                           "parallelIndex": 3,
-                          "status": "passed",
-                          "duration": 17377,
-                          "errors": [],
+                          "status": "failed",
+                          "duration": 140,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-08T14:54:54.217Z",
+                          "startTime": "2026-02-02T10:30:46.554Z",
                           "annotations": [],
-                          "attachments": []
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
                         }
                       ],
-                      "status": "expected"
+                      "status": "unexpected"
                     }
                   ],
-                  "id": "ce46b734337c02890a88-c7040279ae875470321f",
-                  "file": "e2e/login.spec.js",
-                  "line": 63,
-                  "column": 7
+                  "id": "48d5d3ff699f7b4a48ad-1d89e6347c52f71ca574",
+                  "file": "api/api.spec.js",
+                  "line": 45,
+                  "column": 5
                 },
                 {
-                  "title": "Login fails with Epic sadface: Username is required",
-                  "ok": true,
+                  "title": "should create a new user",
+                  "ok": false,
                   "tags": [],
                   "tests": [
                     {
@@ -304,26 +390,2096 @@
                       "projectName": "chromium",
                       "results": [
                         {
-                          "workerIndex": 2,
-                          "parallelIndex": 2,
-                          "status": "passed",
-                          "duration": 6844,
-                          "errors": [],
+                          "workerIndex": 8,
+                          "parallelIndex": 1,
+                          "status": "failed",
+                          "duration": 51,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
                           "stdout": [],
                           "stderr": [],
                           "retry": 0,
-                          "startTime": "2025-12-08T14:55:12.990Z",
+                          "startTime": "2026-02-02T10:30:59.050Z",
                           "annotations": [],
-                          "attachments": []
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
                         }
                       ],
-                      "status": "expected"
+                      "status": "unexpected"
                     }
                   ],
-                  "id": "ce46b734337c02890a88-688d7774e1899bd491e5",
-                  "file": "e2e/login.spec.js",
-                  "line": 63,
-                  "column": 7
+                  "id": "48d5d3ff699f7b4a48ad-c285cd56df3a51bcc170",
+                  "file": "api/api.spec.js",
+                  "line": 14,
+                  "column": 5
+                },
+                {
+                  "title": "should retrieve a user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 9,
+                          "parallelIndex": 3,
+                          "status": "failed",
+                          "duration": 85,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:30:59.261Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-3fc4caa5ae4110578083",
+                  "file": "api/api.spec.js",
+                  "line": 26,
+                  "column": 5
+                },
+                {
+                  "title": "should update a user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 10,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 68,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:30:59.320Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-17827a7a358d3bf9dc34",
+                  "file": "api/api.spec.js",
+                  "line": 34,
+                  "column": 5
+                },
+                {
+                  "title": "should list users with pagination",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 11,
+                          "parallelIndex": 2,
+                          "status": "failed",
+                          "duration": 97,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:30:59.776Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-cc059682879982141b7a",
+                  "file": "api/api.spec.js",
+                  "line": 45,
+                  "column": 5
+                },
+                {
+                  "title": "should create a new user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "firefox",
+                      "projectName": "firefox",
+                      "results": [
+                        {
+                          "workerIndex": 16,
+                          "parallelIndex": 1,
+                          "status": "failed",
+                          "duration": 150,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:11.633Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-e16261fc6f3638e03e11",
+                  "file": "api/api.spec.js",
+                  "line": 14,
+                  "column": 5
+                },
+                {
+                  "title": "should retrieve a user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "firefox",
+                      "projectName": "firefox",
+                      "results": [
+                        {
+                          "workerIndex": 17,
+                          "parallelIndex": 3,
+                          "status": "failed",
+                          "duration": 104,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:11.749Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-35f6e71c11bbea6aa53b",
+                  "file": "api/api.spec.js",
+                  "line": 26,
+                  "column": 5
+                },
+                {
+                  "title": "should update a user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "firefox",
+                      "projectName": "firefox",
+                      "results": [
+                        {
+                          "workerIndex": 18,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 100,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:12.051Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-cea24335595ee8109a66",
+                  "file": "api/api.spec.js",
+                  "line": 34,
+                  "column": 5
+                },
+                {
+                  "title": "should list users with pagination",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "firefox",
+                      "projectName": "firefox",
+                      "results": [
+                        {
+                          "workerIndex": 19,
+                          "parallelIndex": 2,
+                          "status": "failed",
+                          "duration": 94,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:12.393Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-47f0821669c175de07bb",
+                  "file": "api/api.spec.js",
+                  "line": 45,
+                  "column": 5
+                },
+                {
+                  "title": "should create a new user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "webkit",
+                      "projectName": "webkit",
+                      "results": [
+                        {
+                          "workerIndex": 24,
+                          "parallelIndex": 3,
+                          "status": "failed",
+                          "duration": 173,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:22.357Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-15a3649a55fac1f45a8d",
+                  "file": "api/api.spec.js",
+                  "line": 14,
+                  "column": 5
+                },
+                {
+                  "title": "should retrieve a user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "webkit",
+                      "projectName": "webkit",
+                      "results": [
+                        {
+                          "workerIndex": 25,
+                          "parallelIndex": 1,
+                          "status": "failed",
+                          "duration": 117,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:22.512Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-314ff303ccae06344a4c",
+                  "file": "api/api.spec.js",
+                  "line": 26,
+                  "column": 5
+                },
+                {
+                  "title": "should update a user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "webkit",
+                      "projectName": "webkit",
+                      "results": [
+                        {
+                          "workerIndex": 26,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 78,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:22.683Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-f43ef13685716cca0e4f",
+                  "file": "api/api.spec.js",
+                  "line": 34,
+                  "column": 5
+                },
+                {
+                  "title": "should list users with pagination",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "webkit",
+                      "projectName": "webkit",
+                      "results": [
+                        {
+                          "workerIndex": 27,
+                          "parallelIndex": 2,
+                          "status": "failed",
+                          "duration": 61,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:23.219Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-b5888b4248f875ee08ed",
+                  "file": "api/api.spec.js",
+                  "line": 45,
+                  "column": 5
+                },
+                {
+                  "title": "should create a new user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "Mobile-Chrome",
+                      "projectName": "Mobile-Chrome",
+                      "results": [
+                        {
+                          "workerIndex": 32,
+                          "parallelIndex": 3,
+                          "status": "failed",
+                          "duration": 71,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:33.799Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-305772bfe77ed3c41383",
+                  "file": "api/api.spec.js",
+                  "line": 14,
+                  "column": 5
+                },
+                {
+                  "title": "should retrieve a user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "Mobile-Chrome",
+                      "projectName": "Mobile-Chrome",
+                      "results": [
+                        {
+                          "workerIndex": 33,
+                          "parallelIndex": 1,
+                          "status": "failed",
+                          "duration": 89,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:33.694Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-36eefca12e5d2e265510",
+                  "file": "api/api.spec.js",
+                  "line": 26,
+                  "column": 5
+                },
+                {
+                  "title": "should update a user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "Mobile-Chrome",
+                      "projectName": "Mobile-Chrome",
+                      "results": [
+                        {
+                          "workerIndex": 34,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 100,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:33.851Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-c61df011abdf91e7fa40",
+                  "file": "api/api.spec.js",
+                  "line": 34,
+                  "column": 5
+                },
+                {
+                  "title": "should list users with pagination",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "Mobile-Chrome",
+                      "projectName": "Mobile-Chrome",
+                      "results": [
+                        {
+                          "workerIndex": 35,
+                          "parallelIndex": 2,
+                          "status": "failed",
+                          "duration": 79,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:34.395Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-7326186edd1dd49d4da4",
+                  "file": "api/api.spec.js",
+                  "line": 45,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Authentication",
+              "file": "api/api.spec.js",
+              "line": 55,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should login successfully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "APITests",
+                      "projectName": "APITests",
+                      "results": [
+                        {
+                          "workerIndex": 4,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 142,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:30:53.370Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-07ba865a44478421f721",
+                  "file": "api/api.spec.js",
+                  "line": 56,
+                  "column": 5
+                },
+                {
+                  "title": "should register new user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "APITests",
+                      "projectName": "APITests",
+                      "results": [
+                        {
+                          "workerIndex": 5,
+                          "parallelIndex": 3,
+                          "status": "failed",
+                          "duration": 118,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:30:53.058Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-c5f53036495c434d2006",
+                  "file": "api/api.spec.js",
+                  "line": 70,
+                  "column": 5
+                },
+                {
+                  "title": "should login successfully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 12,
+                          "parallelIndex": 1,
+                          "status": "failed",
+                          "duration": 99,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:05.447Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-37dc2c19236517edb6a4",
+                  "file": "api/api.spec.js",
+                  "line": 56,
+                  "column": 5
+                },
+                {
+                  "title": "should register new user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 13,
+                          "parallelIndex": 3,
+                          "status": "failed",
+                          "duration": 109,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:05.639Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-a5db99fe4a5d78c2a798",
+                  "file": "api/api.spec.js",
+                  "line": 70,
+                  "column": 5
+                },
+                {
+                  "title": "should login successfully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "firefox",
+                      "projectName": "firefox",
+                      "results": [
+                        {
+                          "workerIndex": 20,
+                          "parallelIndex": 1,
+                          "status": "failed",
+                          "duration": 84,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:16.651Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-fde133d51d2147812966",
+                  "file": "api/api.spec.js",
+                  "line": 56,
+                  "column": 5
+                },
+                {
+                  "title": "should register new user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "firefox",
+                      "projectName": "firefox",
+                      "results": [
+                        {
+                          "workerIndex": 21,
+                          "parallelIndex": 3,
+                          "status": "failed",
+                          "duration": 85,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:16.610Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-34abc887f0777fe01b0a",
+                  "file": "api/api.spec.js",
+                  "line": 70,
+                  "column": 5
+                },
+                {
+                  "title": "should login successfully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "webkit",
+                      "projectName": "webkit",
+                      "results": [
+                        {
+                          "workerIndex": 28,
+                          "parallelIndex": 3,
+                          "status": "failed",
+                          "duration": 73,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:28.308Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-c64c3ca088988df999c6",
+                  "file": "api/api.spec.js",
+                  "line": 56,
+                  "column": 5
+                },
+                {
+                  "title": "should register new user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "webkit",
+                      "projectName": "webkit",
+                      "results": [
+                        {
+                          "workerIndex": 29,
+                          "parallelIndex": 1,
+                          "status": "failed",
+                          "duration": 69,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:28.361Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-9c70d214a6d7cb061e47",
+                  "file": "api/api.spec.js",
+                  "line": 70,
+                  "column": 5
+                },
+                {
+                  "title": "should login successfully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "Mobile-Chrome",
+                      "projectName": "Mobile-Chrome",
+                      "results": [
+                        {
+                          "workerIndex": 36,
+                          "parallelIndex": 1,
+                          "status": "failed",
+                          "duration": 159,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:40.032Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-553ae97ab885d1b1dfe9",
+                  "file": "api/api.spec.js",
+                  "line": 56,
+                  "column": 5
+                },
+                {
+                  "title": "should register new user",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "Mobile-Chrome",
+                      "projectName": "Mobile-Chrome",
+                      "results": [
+                        {
+                          "workerIndex": 37,
+                          "parallelIndex": 3,
+                          "status": "failed",
+                          "duration": 90,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:40.256Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-a0ac20ece43c77b32b3d",
+                  "file": "api/api.spec.js",
+                  "line": 70,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Error Handling",
+              "file": "api/api.spec.js",
+              "line": 82,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "should handle invalid user ID gracefully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "APITests",
+                      "projectName": "APITests",
+                      "results": [
+                        {
+                          "workerIndex": 6,
+                          "parallelIndex": 1,
+                          "status": "failed",
+                          "duration": 109,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:30:53.196Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-a362c0b5c5a74899ad4c",
+                  "file": "api/api.spec.js",
+                  "line": 83,
+                  "column": 5
+                },
+                {
+                  "title": "should handle invalid login credentials",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "APITests",
+                      "projectName": "APITests",
+                      "results": [
+                        {
+                          "workerIndex": 7,
+                          "parallelIndex": 2,
+                          "status": "failed",
+                          "duration": 65,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:30:53.586Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-e2d1742d55f2c190f234",
+                  "file": "api/api.spec.js",
+                  "line": 87,
+                  "column": 5
+                },
+                {
+                  "title": "should handle invalid user ID gracefully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 14,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 115,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:05.599Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-ca2fd25cdde143a3d9c6",
+                  "file": "api/api.spec.js",
+                  "line": 83,
+                  "column": 5
+                },
+                {
+                  "title": "should handle invalid login credentials",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 15,
+                          "parallelIndex": 2,
+                          "status": "failed",
+                          "duration": 88,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:06.128Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-bf0eeda17d57399729d0",
+                  "file": "api/api.spec.js",
+                  "line": 87,
+                  "column": 5
+                },
+                {
+                  "title": "should handle invalid user ID gracefully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "firefox",
+                      "projectName": "firefox",
+                      "results": [
+                        {
+                          "workerIndex": 22,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 66,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:16.750Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-009cd8ba89799fbed869",
+                  "file": "api/api.spec.js",
+                  "line": 83,
+                  "column": 5
+                },
+                {
+                  "title": "should handle invalid login credentials",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "firefox",
+                      "projectName": "firefox",
+                      "results": [
+                        {
+                          "workerIndex": 23,
+                          "parallelIndex": 2,
+                          "status": "failed",
+                          "duration": 58,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:17.052Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-64b3f930c217f91433c9",
+                  "file": "api/api.spec.js",
+                  "line": 87,
+                  "column": 5
+                },
+                {
+                  "title": "should handle invalid user ID gracefully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "webkit",
+                      "projectName": "webkit",
+                      "results": [
+                        {
+                          "workerIndex": 30,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 70,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:28.451Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-7487c4f6944379032b50",
+                  "file": "api/api.spec.js",
+                  "line": 83,
+                  "column": 5
+                },
+                {
+                  "title": "should handle invalid login credentials",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "webkit",
+                      "projectName": "webkit",
+                      "results": [
+                        {
+                          "workerIndex": 31,
+                          "parallelIndex": 2,
+                          "status": "failed",
+                          "duration": 76,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:28.798Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-0ff5a02afcb1ef0809cd",
+                  "file": "api/api.spec.js",
+                  "line": 87,
+                  "column": 5
+                },
+                {
+                  "title": "should handle invalid user ID gracefully",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "Mobile-Chrome",
+                      "projectName": "Mobile-Chrome",
+                      "results": [
+                        {
+                          "workerIndex": 38,
+                          "parallelIndex": 0,
+                          "status": "failed",
+                          "duration": 80,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:40.336Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-b5398216095a0bfe39fd",
+                  "file": "api/api.spec.js",
+                  "line": 83,
+                  "column": 5
+                },
+                {
+                  "title": "should handle invalid login credentials",
+                  "ok": false,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "Mobile-Chrome",
+                      "projectName": "Mobile-Chrome",
+                      "results": [
+                        {
+                          "workerIndex": 39,
+                          "parallelIndex": 2,
+                          "status": "failed",
+                          "duration": 80,
+                          "error": {
+                            "message": "Error: API_URL environment variable is required",
+                            "stack": "Error: API_URL environment variable is required\n    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\n    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17",
+                            "location": {
+                              "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                              "column": 13,
+                              "line": 11
+                            },
+                            "snippet": "\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m"
+                          },
+                          "errors": [
+                            {
+                              "location": {
+                                "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                                "column": 13,
+                                "line": 11
+                              },
+                              "message": "Error: API_URL environment variable is required\n\n\u001b[90m   at \u001b[39m..\\src\\utils\\ApiHelper.js:11\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     }\u001b[33m;\u001b[39m\n \u001b[90m 10 |\u001b[39m     \u001b[36mif\u001b[39m (\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mbaseURL) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m       \u001b[36mthrow\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mError\u001b[39m(\u001b[32m'API_URL environment variable is required'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     }\n \u001b[90m 13 |\u001b[39m   }\n \u001b[90m 14 |\u001b[39m\u001b[0m\n\u001b[2m    at ApiHelper (D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js:11:13)\u001b[22m\n\u001b[2m    at D:\\POC\\playwright-testing-suite\\tests\\api\\api.spec.js:11:17\u001b[22m"
+                            }
+                          ],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-02T10:31:40.770Z",
+                          "annotations": [],
+                          "attachments": [],
+                          "errorLocation": {
+                            "file": "D:\\POC\\playwright-testing-suite\\src\\utils\\ApiHelper.js",
+                            "column": 13,
+                            "line": 11
+                          }
+                        }
+                      ],
+                      "status": "unexpected"
+                    }
+                  ],
+                  "id": "48d5d3ff699f7b4a48ad-b62f88e04635455c51f9",
+                  "file": "api/api.spec.js",
+                  "line": 87,
+                  "column": 5
                 }
               ]
             }
@@ -334,11 +2490,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-08T14:54:52.817Z",
-    "duration": 27546.033,
-    "expected": 5,
+    "startTime": "2026-02-02T10:30:39.491Z",
+    "duration": 61555.16,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 40,
     "flaky": 0
   }
 }

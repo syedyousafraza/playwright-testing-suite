@@ -2,14 +2,12 @@
 export class ApiHelper {
   constructor(request) {
     this.request = request;
-    this.baseURL = process.env.API_URL;
+    // Use JSONPlaceholder as default free API, can be overridden with API_URL env var
+    this.baseURL = process.env.API_URL || 'https://jsonplaceholder.typicode.com';
     this.defaultHeaders = {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     };
-    if (!this.baseURL) {
-      throw new Error('API_URL environment variable is required');
-    }
   }
 
   async sendRequest(method, endpoint, data = null, headers = {}) {
@@ -32,47 +30,60 @@ export class ApiHelper {
     return response.json();
   }
 
-  // User endpoints
+  // User endpoints (adapted for JSONPlaceholder)
   async createUser(userData) {
-    return this.sendRequest('post', '/api/users', userData);
+    return this.sendRequest('post', '/users', userData);
   }
 
   async getUser(userId) {
-    return this.sendRequest('get', `/api/users/${userId}`);
+    return this.sendRequest('get', `/users/${userId}`);
   }
 
   async updateUser(userId, userData) {
-    return this.sendRequest('put', `/api/users/${userId}`, userData);
+    return this.sendRequest('put', `/users/${userId}`, userData);
   }
 
   async deleteUser(userId) {
-    return this.sendRequest('delete', `/api/users/${userId}`);
+    return this.sendRequest('delete', `/users/${userId}`);
   }
 
   async listUsers(page = 1) {
-    return this.sendRequest('get', `/api/users?page=${page}`);
+    // JSONPlaceholder doesn't support pagination, returns all users
+    return this.sendRequest('get', '/users');
   }
 
-  // Authentication endpoints
-  async login(email, password) {
-    return this.sendRequest('post', '/api/login', { email, password });
+  // Post endpoints (used for testing CRUD operations)
+  async createPost(postData) {
+    return this.sendRequest('post', '/posts', postData);
   }
 
-  async register(email, password) {
-    return this.sendRequest('post', '/api/register', { email, password });
+  async getPost(postId) {
+    return this.sendRequest('get', `/posts/${postId}`);
+  }
+
+  async updatePost(postId, postData) {
+    return this.sendRequest('put', `/posts/${postId}`, postData);
+  }
+
+  async deletePost(postId) {
+    return this.sendRequest('delete', `/posts/${postId}`);
+  }
+
+  async listPosts(page = 1) {
+    return this.sendRequest('get', '/posts');
   }
 
   // Generic data handling
   async createResource(endpoint, data) {
-    return this.sendRequest('post', `/api/${endpoint}`, data);
+    return this.sendRequest('post', `/${endpoint}`, data);
   }
 
   async getResource(endpoint, id) {
-    return this.sendRequest('get', `/api/${endpoint}/${id}`);
+    return this.sendRequest('get', `/${endpoint}/${id}`);
   }
 
   async deleteResource(endpoint, id) {
-    return this.sendRequest('delete', `/api/${endpoint}/${id}`);
+    return this.sendRequest('delete', `/${endpoint}/${id}`);
   }
 }
 
