@@ -1,18 +1,36 @@
 {
   "validUser": {
-    "username": "standard_user",
-    "password": "secret_sauce"
+    "username": "testuser_yousaf",
+    "password": "Test1234"
   },
   "invalidUsers": [
     {
-      "username": "invalid@example.com",
-      "password": "wrong"
+      "username": "invaliduser",
+      "password": "wrongpassword"
     },
     {
       "username": "",
-      "password": "Test@123"
+      "password": "TestPassword@123"
+    },
+    {
+      "username": "testuser123",
+      "password": ""
     }
   ],
+  "registrationData": {
+    "username": "newuser",
+    "email": "newuser@test.com",
+    "password": "TestPassword@123",
+    "confirmPassword": "TestPassword@123",
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": "1234567890",
+    "country": "United States",
+    "city": "New York",
+    "address": "123 Main Street",
+    "state": "NY",
+    "postalCode": "10001"
+  },
   "products": [
     {
       "name": "Laptop",

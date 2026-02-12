@@ -20,13 +20,13 @@ export default defineConfig({
     ['json', { outputFile: 'test-results.json' }],
   ],
   use: {
-    baseURL: process.env.BASE_URL || 'https://www.saucedemo.com',
+    baseURL: process.env.BASE_URL || 'https://advantageonlineshopping.com',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     actionTimeout: 15000,
-    navigationTimeout: 30000,
-    // ignoreHTTPSErrors: true,
+    navigationTimeout: 60000,
+    ignoreHTTPSErrors: true,
   },
   projects: [
        {
