@@ -2,12 +2,15 @@ import { loadTestOptions, stressTestOptions, spikeTestOptions, enduranceTestOpti
 import { generateRealisticPost, generateLargePost } from './dataGenerators.js';
 import { testGetAllPosts, testCreatePost } from './testFunctions.js';
 
-// ====== CHOOSE YOUR TEST TYPE ======
-export const options = loadTestOptions;        // 🟢 LOAD TEST (Default)
-// export const options = stressTestOptions;   // 🔥 STRESS TEST
-// export const options = spikeTestOptions;    // ⚡ SPIKE TEST
-// export const options = enduranceTestOptions; // ⏱️ ENDURANCE TEST
-// export const options = volumeTestOptions;   // 📊 VOLUME TEST
+const testOptions = {
+  load: loadTestOptions,
+  stress: stressTestOptions,
+  spike: spikeTestOptions,
+  endurance: enduranceTestOptions,
+  volume: volumeTestOptions,
+};
+
+export const options = testOptions[__ENV.TEST_TYPE || 'load'] || loadTestOptions;
 
 // ====== CONFIGURATION ======
 const BASE_URL = 'https://jsonplaceholder.typicode.com';

@@ -12,65 +12,46 @@ export class LoginPage extends BasePage {
     this.userMenuLinkAlt = page.locator('nav li a:has(img)').filter({ hasText: 'USER' }).last();
     
     // Form inputs - these become visible after clicking UserMenu
-    this.usernameInput = page.locator('input[type="text"]').first();
-    this.passwordInput = page.locator('input[type="password"]');
+    this.usernameInput = page.locator('input[name="username"]:visible').first();
+    this.passwordInput = page.locator('input[name="password"]:visible').first();
     this.signInButton = page.getByRole('button', { name: 'SIGN IN' });
-    this.rememberMeCheckbox = page.locator('input[type="checkbox"]');
+    this.rememberMeCheckbox = page.locator('input[type="checkbox"]:visible').first();
     this.createAccountLink = page.getByRole('link', { name: 'CREATE NEW ACCOUNT' });
     this.forgotPasswordLink = page.getByRole('link', { name: 'Forgot your password?' });
   }
 
   async ensureLoginFormVisible() {
-    // First ensure page is fully loaded
     await this.page.waitForLoadState('domcontentloaded');
-    await this.page.waitForTimeout(1000);
-    
-    // Click on UserMenu using the correct ID (#hrefUserIcon)
-    await this.page.locator('#hrefUserIcon').click();
-    
-    // Wait for Angular to stabilize
-    await this.page.evaluate(async () => {
-      if (!window.ng) return;
-      
-      return new Promise((resolve) => {
-        const injector = ng.probe(document.documentElement).injector();
-        const $http = injector.get('$http');
-        const $rootScope = injector.get('$rootScope');
-        
-        const checkComplete = () => {
-          if ($http.pendingRequests.length === 0 && !$rootScope.$$phase) {
-            resolve();
-          } else {
-            setTimeout(checkComplete, 100);
-          }
-        };
-        
-        setTimeout(resolve, 5000);
-        checkComplete();
-      });
-    });
-    
-    // Wait for the form to be rendered and visible
-    await this.usernameInput.waitFor({ state: 'visible', timeout: 5000 });
+    await this.page.locator('.loader').waitFor({ state: 'hidden', timeout: 15000 }).catch(() => null);
+
+    if (!(await this.usernameInput.isVisible())) {
+      await this.page.locator('#hrefUserIcon').click({ force: true });
+    }
+
+    await this.usernameInput.waitFor({ state: 'visible', timeout: 10000 });
   }
 
   async login(username, password) {
     // Ensure form is visible first
     await this.ensureLoginFormVisible();
     
-    // Wait a bit more for form to be fully interactive
-    await this.page.waitForTimeout(500);
-    
-    // Fill credentials with explicit waits
-    await this.usernameInput.waitFor({ state: 'visible', timeout: 3000 });
     await this.usernameInput.fill(username);
     
-    await this.passwordInput.waitFor({ state: 'visible', timeout: 3000 });
     await this.passwordInput.fill(password);
     
-    // Wait for button to be enabled and clickable
+    // Empty credentials are rejected by client-side validation, so there is no
+    // request to submit in that case.
     await this.signInButton.waitFor({ state: 'visible', timeout: 3000 });
-    await this.page.waitForTimeout(500);
+    if (!username || !password) {
+      return;
+    }
+
+    // Wait for button to be enabled and clickable
+    await this.page.waitForFunction(
+      selector => !document.querySelector(selector)?.disabled,
+      '#sign_in_btn',
+      { timeout: 3000 }
+    );
     await this.signInButton.click();
     
     // Wait for navigation
@@ -86,23 +67,22 @@ export class LoginPage extends BasePage {
     // Ensure form is visible first
     await this.ensureLoginFormVisible();
     
-    // Wait a bit more for form to be fully interactive
-    await this.page.waitForTimeout(500);
-    
     // Fill credentials
-    await this.usernameInput.waitFor({ state: 'visible', timeout: 3000 });
     await this.usernameInput.fill(username);
     
-    await this.passwordInput.waitFor({ state: 'visible', timeout: 3000 });
     await this.passwordInput.fill(password);
     
     // Check remember me
     await this.rememberMeCheckbox.waitFor({ state: 'visible', timeout: 3000 });
-    await this.rememberMeCheckbox.click();
+    await this.rememberMeCheckbox.check();
     
     // Click sign in button
     await this.signInButton.waitFor({ state: 'visible', timeout: 3000 });
-    await this.page.waitForTimeout(500);
+    await this.page.waitForFunction(
+      selector => !document.querySelector(selector)?.disabled,
+      '#sign_in_btn',
+      { timeout: 3000 }
+    );
     await this.signInButton.click();
     
     // Wait for navigation

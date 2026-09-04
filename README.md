@@ -1,16 +1,13 @@
-## JavaScript Test Automation Framework with Playwright
+## Playwright Testing Suite
 
 
 ```
-playwright-automation-framework/
+playwright-testing-suite/
 ├── src/
 │   ├── pages/
 │   │   ├── BasePage.js
 │   │   ├── LoginPage.js
 │   │   └── HomePage.js
-│   ├── components/
-│   │   ├── NavigationBar.js
-│   │   └── SearchBar.js
 │   ├── fixtures/
 │   │   └── testFixtures.js
 │   ├── utils/
@@ -18,19 +15,17 @@ playwright-automation-framework/
 │   │   ├── ApiHelper.js
 │   │   └── FileHelper.js
 │   ├── config/
-│   │   ├── config.js
 │   │   └── environments.js
 ├── tests/
 │   ├── e2e/
 │   │   ├── login.spec.js
-│   │   └── search.spec.js
 │   ├── api/
 │   │   └── api.spec.js
 │   └── data/
 │       └── testData.json
 ├── playwright.config.js
 ├── package.json
-├── .env
+├── .env.example
 ├── .gitignore
 └── README.md
 ```
@@ -41,7 +36,7 @@ playwright-automation-framework/
 
 ```json
 {
-  "name": "playwright-automation-framework",
+  "name": "playwright-testing-suite",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -50,13 +45,11 @@ playwright-automation-framework/
     "test:chrome": "playwright test --project=chromium",
     "test:parallel": "playwright test --workers=4",
     "test:tag": "playwright test --grep @smoke",
-    "report": "allure generate allure-results --clean -o allure-report && allure open allure-report",
     "lint": "eslint . --ext .js",
     "format": "prettier --write ."
   },
   "devDependencies": {
     "@playwright/test": "^1.45.0",
-    "allure-playwright": "^2.15.0",
     "dotenv": "^16.4.0",
     "@faker-js/faker": "^8.4.0",
     "eslint": "^8.57.0",
@@ -116,10 +109,16 @@ npm run test:headed
 # Run smoke tests
 npm run test:tag @smoke
 
-# Generate Allure report
-npm run report
+# Run the k6 load profile (requires k6 installed separately)
+npm run test:load
 
 # Run tests in parallel
 npm run test:parallel
 ```
+
+## Environment setup
+
+Copy `.env.example` to `.env` and replace the placeholder credentials. Set `ENV` to
+`dev`, `staging`, or `prod` to select that environment URL. `BASE_URL` is used when
+no environment is explicitly selected.
 

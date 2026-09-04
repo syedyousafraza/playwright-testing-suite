@@ -21,7 +21,7 @@ export function testGetAllPosts(BASE_URL) {
     'GET /posts - Valid JSON structure': (r) => {
       try {
         const posts = JSON.parse(r.body);
-        return posts.every(post => post.hasOwnProperty('id') && post.hasOwnProperty('title'));
+        return posts.every(post => Object.hasOwn(post, 'id') && Object.hasOwn(post, 'title'));
       } catch {
         return false;
       }
@@ -31,9 +31,6 @@ export function testGetAllPosts(BASE_URL) {
   responseTimeGetPosts.add(response.timings.duration);
   errorRate.add(!isSuccess);
 
-  if (!isSuccess) {
-    console.error(`❌ GET /posts failed: ${response.status} - ${response.body.substring(0, 100)}`);
-  }
 }
 
 export function testCreatePost(BASE_URL, payload) {
@@ -48,7 +45,7 @@ export function testCreatePost(BASE_URL, payload) {
     'POST /posts - Returns created post': (r) => {
       try {
         const post = JSON.parse(r.body);
-        return post.hasOwnProperty('id') && post.id > 0;
+        return Object.hasOwn(post, 'id') && post.id > 0;
       } catch {
         return false;
       }

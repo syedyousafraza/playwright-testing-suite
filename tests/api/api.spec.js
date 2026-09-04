@@ -3,7 +3,6 @@
 // Using JSONPlaceholder (https://jsonplaceholder.typicode.com) as free public API for testing
 import { test, expect } from '@playwright/test';
 import { ApiHelper } from '../../src/utils/ApiHelper.js';
-import { DataGenerator } from '../../src/utils/DataGenerator.js';
 
 test.describe('API Tests', () => {
   let apiHelper;
