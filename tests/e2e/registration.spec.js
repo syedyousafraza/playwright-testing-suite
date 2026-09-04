@@ -1,6 +1,5 @@
 // tests/e2e/registration.spec.js
 import { test, expect } from '../../src/fixtures/testFixtures.js';
-import testData from '../data/testData.json' assert { type: 'json' };
 
 test.describe('User Registration', () => {
     test.beforeEach(async ({ page }) => {

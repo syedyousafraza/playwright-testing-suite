@@ -1,11 +1,10 @@
 // playwright.config.js
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
-import { environments } from './src/config/environments';
+import { getEnvironmentConfig } from './src/config/environments.js';
 dotenv.config();
 
-// Get environment from command line or fall back to TEST_ENV
-const environment = process.env.ENV || process.env.TEST_ENV || 'staging';
+const environmentConfig = getEnvironmentConfig();
 
 
 export default defineConfig({
@@ -13,14 +12,14 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: 1,
   reporter: [
     ['html'],
     ['list'],
-    ['json', { outputFile: 'test-results.json' }],
+    ['json', { outputFile: 'test-results/test-results.json' }],
   ],
   use: {
-    baseURL: process.env.BASE_URL || 'https://advantageonlineshopping.com',
+    baseURL: environmentConfig.baseURL,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
@@ -36,18 +35,22 @@ export default defineConfig({
     },
     {
       name: 'chromium',
+      testIgnore: /api\.spec\.js/,
       use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'firefox',
+      testIgnore: /api\.spec\.js/,
       use: { ...devices['Desktop Firefox'] },
     },
     {
       name: 'webkit',
+      testIgnore: /api\.spec\.js/,
       use: { ...devices['Desktop Safari'] },
     },
     {
       name: 'Mobile-Chrome',
+      testIgnore: /api\.spec\.js/,
       use: { ...devices['Pixel 5'] },
     },
   ],

@@ -1,6 +1,3 @@
-import { environments } from '../config/environments';
+import { getEnvironmentConfig } from '../config/environments.js';
 
-export const getEnvironmentConfig = () => {
-  const env = process.env.ENV || process.env.TEST_ENV || 'staging';
-  return environments[env];
-};
+export { getEnvironmentConfig };

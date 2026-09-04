@@ -5,16 +5,7 @@ export class RegistrationPage extends BasePage {
   constructor(page) {
     super(page);
     
-    // Use a more robust approach - find inputs by their adjacent labels or position
-    // These are dynamically rendered Angular inputs, so we use a more specific approach
-    const inputByLabel = (labelText) => {
-      return page.locator(`input`).filter({
-        has: page.locator(`parent >> .. >> ${labelText}`)
-      });
-    };
-    
     // Account Details section - using nth() to get specific inputs
-    const allInputs = page.locator('input');
     this.usernameInput = page.locator('input').nth(0);  // First input on registration page
     this.emailInput = page.locator('input').nth(1);      // Second input
     this.passwordInput = page.locator('input').nth(2);   // Third input  
@@ -120,11 +111,6 @@ export class RegistrationPage extends BasePage {
       if (registerButton) {
         registerButton.disabled = true;
       }
-
-      // Password validation: accept only lowercase letters and numbers
-      const validatePassword = (value) => {
-        return /^[a-z0-9]*$/.test(value);
-      };
 
       // Check if all required fields are filled
       const checkAllFieldsFilled = () => {

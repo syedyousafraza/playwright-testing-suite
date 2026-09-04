@@ -48,8 +48,7 @@ export class ApiHelper {
   }
 
   async listUsers(page = 1) {
-    // JSONPlaceholder doesn't support pagination, returns all users
-    return this.sendRequest('get', '/users');
+    return this.sendRequest('get', `/users?_page=${page}`);
   }
 
   // Post endpoints (used for testing CRUD operations)
@@ -70,7 +69,7 @@ export class ApiHelper {
   }
 
   async listPosts(page = 1) {
-    return this.sendRequest('get', '/posts');
+    return this.sendRequest('get', `/posts?_page=${page}`);
   }
 
   // Generic data handling

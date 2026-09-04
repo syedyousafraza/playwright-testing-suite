@@ -1,10 +1,10 @@
-// .eslintrc.js
+// .eslintrc.cjs
 module.exports = {
   env: {
     // Enables global variables for browser (e.g., window, document)
     browser: true,
 
-    // Enables ECMAScript 2021 globals and syntax (e.g., optional chaining)
+    // Enables ECMAScript 2024 globals and syntax (e.g., optional chaining)
     es2024: true,
 
     // Enables global variables for Node.js (e.g., require, module)
@@ -22,8 +22,6 @@ module.exports = {
     sourceType: 'module',
 
     ecmaFeatures: {
-      // Enables parsing of import assertions (used in some advanced import scenarios)
-      importAssertions: true,
     },
   },
   rules: {
@@ -34,5 +32,8 @@ module.exports = {
     // Warns when variables are defined but not used
     // Helps keep code clean and avoid unnecessary declarations
     'no-unused-vars': 'warn',
+  },
+  globals: {
+    __ENV: 'readonly',
   },
 };

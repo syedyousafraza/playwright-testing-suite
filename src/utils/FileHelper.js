@@ -23,7 +23,7 @@ export class FileHelper {
       await fs.rm(dirPath, { recursive: true, force: true });
       await fs.mkdir(dirPath, { recursive: true });
     } catch (error) {
-      console.error(`Error cleaning directory: ${error}`);
+      throw new Error(`Error cleaning directory: ${error.message}`, { cause: error });
     }
   }
 }
