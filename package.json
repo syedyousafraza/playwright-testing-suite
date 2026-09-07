@@ -13,6 +13,7 @@
     "test:tag": "playwright test --grep @smoke",
     "test:tag1": "playwright test --grep @regression",
     "test:load": "k6 run tests/performance/loadtest.js",
+    "test:load:json": "k6 run --out json=test-results/k6-results.json tests/performance/loadtest.js",
     "test:dev": "set ENV=dev&& playwright test",
     "test:staging": "set ENV=staging&& playwright test",
     "test:prod": "set ENV=prod&& playwright test",

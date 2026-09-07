@@ -1,6 +1,7 @@
 import { loadTestOptions, stressTestOptions, spikeTestOptions, enduranceTestOptions, volumeTestOptions } from './config.js';
 import { generateRealisticPost, generateLargePost } from './dataGenerators.js';
 import { testGetAllPosts, testCreatePost } from './testFunctions.js';
+import { textSummary } from 'https://jslib.k6.io/k6-summary/0.0.2/index.js';
 
 const testOptions = {
   load: loadTestOptions,
@@ -12,8 +13,7 @@ const testOptions = {
 
 export const options = testOptions[__ENV.TEST_TYPE || 'load'] || loadTestOptions;
 
-// ====== CONFIGURATION ======
-const BASE_URL = 'https://jsonplaceholder.typicode.com';
+const BASE_URL = __ENV.BASE_URL || 'https://jsonplaceholder.typicode.com';
 
 // ====== MAIN TEST FUNCTION ======
 export default function() {
@@ -22,4 +22,11 @@ export default function() {
     JSON.stringify(generateLargePost()) : 
     JSON.stringify(generateRealisticPost());
   testCreatePost(BASE_URL, payload);
+}
+
+export function handleSummary(data) {
+  return {
+    stdout: textSummary(data, { indent: ' ', enableColors: true }),
+    'test-results/k6-summary.json': JSON.stringify(data, null, 2),
+  };
 }
