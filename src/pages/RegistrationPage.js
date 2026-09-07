@@ -5,35 +5,34 @@ export class RegistrationPage extends BasePage {
   constructor(page) {
     super(page);
     
-    // Account Details section - using nth() to get specific inputs
-    this.usernameInput = page.locator('input').nth(0);  // First input on registration page
-    this.emailInput = page.locator('input').nth(1);      // Second input
-    this.passwordInput = page.locator('input').nth(2);   // Third input  
-    this.confirmPasswordInput = page.locator('input').nth(3);  // Fourth input
+    // Account details
+    this.usernameInput = page.locator('input[name="usernameRegisterPage"]');
+    this.emailInput = page.locator('input[name="emailRegisterPage"]');
+    this.passwordInput = page.locator('input[name="passwordRegisterPage"]');
+    this.confirmPasswordInput = page.locator('input[name="confirm_passwordRegisterPage"]');
     
     // Personal Details section
-    this.firstNameInput = page.locator('input').nth(4);
-    this.lastNameInput = page.locator('input').nth(5);
-    this.phoneNumberInput = page.locator('input').nth(6);
+    this.firstNameInput = page.locator('input[name="first_nameRegisterPage"]');
+    this.lastNameInput = page.locator('input[name="last_nameRegisterPage"]');
+    this.phoneNumberInput = page.locator('input[name="phone_numberRegisterPage"]');
     
     // Address section
-    this.countrySelect = page.locator('select').first();
-    this.cityInput = page.locator('input').nth(7);
-    this.addressInput = page.locator('input').nth(8);
-    this.stateInput = page.locator('input').nth(9);
-    this.postalCodeInput = page.locator('input').nth(10);
+    this.countrySelect = page.locator('select[name="countryListboxRegisterPage"]');
+    this.cityInput = page.locator('input[name="cityRegisterPage"]');
+    this.addressInput = page.locator('input[name="addressRegisterPage"]');
+    this.stateInput = page.locator('input[name="state_/_province_/_regionRegisterPage"]');
+    this.postalCodeInput = page.locator('input[name="postal_codeRegisterPage"]');
     
     // Checkboxes and buttons
-    this.agreeCheckbox = page.locator('input[type="checkbox"]').nth(1);  // Second checkbox (first is newsletter)
-    this.registerButton = page.locator('button').filter({ hasText: 'REGISTER' });
-    this.alreadyHaveAccountLink = page.locator('a').filter({ hasText: 'ALREADY HAVE AN ACCOUNT' });
+    this.agreeCheckbox = page.locator('input[name="i_agree"]');
+    this.registerButton = page.getByRole('button', { name: 'REGISTER', exact: true });
+    this.homeBreadcrumbLink = page.getByRole('link', { name: 'HOME/', exact: true });
     
     // Error messages
     this.errorMessages = page.locator('[class*="error"], [class*="Error"]');
   }
 
   async fillAccountDetails(username, email, password, confirmPassword) {
-    await this.page.waitForTimeout(500);
     await this.usernameInput.fill(username);
     await this.emailInput.fill(email);
     await this.passwordInput.fill(password);
@@ -59,11 +58,7 @@ export class RegistrationPage extends BasePage {
   }
 
   async register() {
-    // Scroll to register button to ensure it's in view
-    await this.registerButton.scrollIntoViewIfNeeded();
-    await this.page.waitForTimeout(500);
-    await this.clickElement(this.registerButton);
-    await this.page.waitForLoadState('networkidle');
+    await this.registerButton.click();
   }
 
   async completeRegistration(userData) {
@@ -89,8 +84,8 @@ export class RegistrationPage extends BasePage {
     return await this.errorMessages.allTextContents();
   }
 
-  async clickAlreadyHaveAccount() {
-    await this.clickElement(this.alreadyHaveAccountLink);
+  async goToHome() {
+    await this.homeBreadcrumbLink.click();
     await this.page.waitForLoadState('networkidle');
   }
 
