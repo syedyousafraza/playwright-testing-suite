@@ -5,15 +5,9 @@ export class LoginPage extends BasePage {
   constructor(page) {
     super(page);
     
-    // Define locators for Advantage Online Shopping login form
-    // The login form is rendered dynamically when UserMenu is clicked
-    // Use CSS selector to find UserMenu link reliably
-    this.userMenuLink = page.locator('nav a[role="link"]').filter({ hasText: 'USER' }).locator('..').first();
-    this.userMenuLinkAlt = page.locator('nav li a:has(img)').filter({ hasText: 'USER' }).last();
-    
-    // Form inputs - these become visible after clicking UserMenu
-    this.usernameInput = page.locator('input[name="username"]:visible').first();
-    this.passwordInput = page.locator('input[name="password"]:visible').first();
+    // The login form is rendered dynamically when UserMenu is clicked.
+    this.usernameInput = page.locator('input[type="text"]').first();
+    this.passwordInput = page.locator('input[type="password"]').first();
     this.signInButton = page.getByRole('button', { name: 'SIGN IN' });
     this.rememberMeCheckbox = page.locator('input[type="checkbox"]:visible').first();
     this.createAccountLink = page.getByRole('link', { name: 'CREATE NEW ACCOUNT' });
@@ -109,7 +103,7 @@ export class LoginPage extends BasePage {
   }
 
   async clickCreateAccount() {
-    await this.clickElement(this.createAccountLink);
+    await this.createAccountLink.click();
     await this.page.waitForLoadState('networkidle');
   }
 }
